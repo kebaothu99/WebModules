@@ -1,0 +1,201 @@
+﻿@page
+@using Blog.Application.Posts.Models
+@model Admin.Blog.Pages.Admin.Posts.NewModel
+@{
+}
+<div class="m-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-progress">
+                        <!-- here can place a progress bar-->
+                    </div>
+                    <div class="m-portlet__head-wrapper">
+                        <div class="m-portlet__head-caption">
+                            <div class="m-portlet__head-title">
+                                <h3 class="m-portlet__head-text">
+                                    Sticky Action Bar
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <a href="#" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                                <span>
+                                    <i class="la la-arrow-left"></i>
+                                    <span>Back</span>
+                                </span>
+                            </a>
+                            <a href="#" class="btn btn-primary m-btn m-btn--icon m-btn--wide m-btn--md">
+                                <span>
+                                    <i class="la la-check"></i>
+                                    <span>Save</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body m-portlet__body--no-padding">
+                    <form class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                        <!--begin: Form Wizard-->
+                        <div class="m-wizard m-wizard--3 m-wizard--success" id="m_wizard">
+                            <!--begin: Message container -->
+                            <div class="m-portlet__padding-x">
+                                <!-- Here you can put a message or alert -->
+                            </div>
+                            <!--end: Message container -->
+                            <div class="row m-row--no-padding">
+                                <div class="col-xl-3 col-lg-12">
+                                    <!--begin: Form Wizard Head -->
+                                    <div class="m-wizard__head">
+                                        <div class="m-form__section m-form__section--first">
+                                            <div class="m-form__heading">
+                                                <h3 class="m-form__heading-title">@Localizer["Publish"]</h3>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-12 m-form__group-sub">
+                                                    <label asp-for="PostDetail.Title" class="form-control-label">@Localizer["Status"]:</label>
+                                                    <select asp-for="PostDetail.Status" asp-items="Html.GetEnumSelectList<PostStatus>()" class="form-control m-input"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-12 m-form__group-sub">
+                                                    <label asp-for="PostDetail.PublishOn" class="form-control-label">@Localizer["Published on"]:</label>
+                                                    <div class='input-group date'>
+                                                        <input asp-for="PostDetail.PublishOn" class="form-control m-input" type="text" />
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text"><i class="la la-calendar-check-o glyphicon-th"></i></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                        <div class="m-form__section m-form__section--first">
+                                            <div class="m-form__heading">
+                                                <h3 class="m-form__heading-title">@Localizer["Format"]</h3>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <div class="col-lg-12">
+                                                    <label asp-for="PostDetail.Format" class="form-control-label">@Localizer["Format"]</label>
+                                                    <div class="m-radio-list">
+                                                        @foreach (var formatType in Enum.GetValues(typeof(PostFormat)))
+                                                        {
+                                                            <label class="m-radio">
+                                                                <input type="radio" asp-for="PostDetail.Format" value="@formatType" /> @formatType.ToString()
+                                                                <span></span>
+                                                            </label>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end: Form Wizard Head -->
+                                </div>
+                                <div class="col-xl-9 col-lg-12">
+                                    <!--begin: Form Wizard Form-->
+                                    <div class="m-wizard__form">
+                                        <div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
+                                            <div class="m-form__section m-form__section--first">
+                                                <div class="m-form__heading">
+                                                    <h3 class="m-form__heading-title">@Localizer["SEO Metadata"]</h3>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-6">
+                                                        <label asp-for="PostDetail.Title" class="form-control-label">* @Localizer["Title"]:</label>
+                                                        <input asp-for="PostDetail.Title" class="form-control m-input" />
+                                                        <span class="m-form__help">@Localizer["Please enter title"]</span>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label asp-for="PostDetail.Slug" class="form-control-label">* @Localizer["Slug"]:</label>
+                                                        <input asp-for="PostDetail.Slug" class="form-control m-input" />
+                                                        <span class="m-form__help">@Localizer["Please enter slug"]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-6">
+                                                        <label asp-for="PostDetail.Keywords" class="form-control-label">@Localizer["Keywords"]:</label>
+                                                        <textarea asp-for="PostDetail.Keywords" class="form-control m-input"></textarea>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label asp-for="PostDetail.Description" class="form-control-label">@Localizer["Description"]:</label>
+                                                        <textarea asp-for="PostDetail.Description" class="form-control m-input"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                            <div class="m-form__section">
+                                                <div class="m-form__heading">
+                                                    <h3 class="m-form__heading-title">@Localizer["Categories & Tags"]</h3>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-6">
+                                                        <label class="form-control-label">@Localizer["Categories"]:</label>
+                                                        <select asp-for="CategoryIDs" asp-items="Model.Categories" class="form-control m-select2"></select>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <label class="form-control-label">@Localizer["Tags"]:</label>
+                                                        <select asp-for="TagIDs" asp-items="Model.Tags" class="form-control m-select2"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                            <div class="m-form__section m-form__section--first">
+                                                <div class="m-form__heading">
+                                                    <h3 class="m-form__heading-title">@Localizer["Content"]</h3>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-12">
+                                                        <label asp-for="PostDetail.Content" class="form-control-label">@Localizer["Content"]:</label>
+                                                        <textarea asp-for="PostDetail.Content" class="form-control m-input"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-12">
+                                                        <label asp-for="PostDetail.Excerpt" class="form-control-label">@Localizer["Excerpt"]:</label>
+                                                        <textarea asp-for="PostDetail.Excerpt" class="form-control m-input"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end: Form Wizard Form-->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // multi select
+            $('#SelectedCategoryIDs').select2({
+                placeholder: "Select a category",
+            });
+            // tagging support
+            $('#SelectedTagIDs').select2({
+                placeholder: "Add a tag",
+                tags: true
+            });
+
+            // datetimepicker
+            $('#PostDetail_PublishOn').datetimepicker({
+                pickerPosition: 'bottom-left',
+                todayHighlight: true,
+                autoclose: true,
+                format: 'yyyy.mm.dd hh:ii'
+            });
+
+            $('#PostDetail_Content').summernote({
+                height: 150
+            });
+        });
+    </script>
+}

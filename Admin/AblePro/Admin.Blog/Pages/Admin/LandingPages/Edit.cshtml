@@ -1,0 +1,137 @@
+﻿@page "{id:int}"
+
+@using Blog.Application.LandingPages.Models;
+@model Admin.Blog.Pages.Admin.LandingPages.EditModel
+@{
+    ViewData["Title"] = "Edit Landing Page";
+}
+
+<form class="form-material" method="post">
+    <input type="hidden" asp-for="PageDetail.ID" />
+    <div class="row">
+        <div class="col-lg-12 col-xl-9">
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icofont icofont-document-search m-r-5"></i>@Localizer["SEO Metadata"]</h5>
+                </div>
+                <div class="card-block">
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-all-caps"></i>
+                        </div>
+                        <div class="form-group form-primary">
+                            <input asp-for="PageDetail.Title" class="form-control" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Title" class="float-label"></label>
+                        </div>
+                    </div>
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-link-alt"></i>
+                        </div>
+                        <div class="form-group form-primary">
+                            <input asp-for="PageDetail.Slug" class="form-control" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Slug" class="float-label"></label>
+                        </div>
+                    </div>
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-ui-keyboard"></i>
+                        </div>
+                        <div class="form-group form-primary">
+                            <input asp-for="PageDetail.Keywords" class="form-control" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Keywords" class="float-label"></label>
+                        </div>
+                    </div>
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-copy-alt"></i>
+                        </div>
+                        <div class="form-group form-primary">
+                            <input asp-for="PageDetail.Description" class="form-control" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Description" class="float-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="icofont icofont-edit m-r-5"></i>@Localizer["Content"]</h5>
+                </div>
+                <div class="card-block">
+                    <div class="form-group">
+                        <textarea asp-for="PageDetail.Content"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-3">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Publish</h5>
+                </div>
+                <div class="card-block">
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="ti-eye"></i>
+                        </div>
+                        <div class="form-group form-primary form-static-label form-static-label-black">
+                            <select asp-for="PageDetail.Status" asp-items="Html.GetEnumSelectList<PageStatus>()" class="form-control"></select>
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Status" class="float-label"></label>
+                        </div>
+                    </div>
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <div class="form-group form-primary form-static-label form-static-label-black">
+                            <input asp-for="PageDetail.PublishOn" class="form-control" type="datetime-local" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.PublishOn" class="float-label"></label>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light">
+                            <i class="fa fa-check"></i> Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5>Page Attributes</h5>
+                </div>
+                <div class="card-block">
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-align-left"></i>
+                        </div>
+                        <div class="form-group form-primary form-static-label form-static-label-black">
+                            <select class="form-control">
+                                <option value="opt1">Publish</option>
+                                <option value="opt1">Private</option>
+                                <option value="opt1">Draft</option>
+                            </select>
+                            <span class="form-bar"></span>
+                            <label class="float-label">Parent</label>
+                        </div>
+                    </div>
+                    <div class="material-group">
+                        <div class="material-addone">
+                            <i class="icofont icofont-numbered"></i>
+                        </div>
+                        <div class="form-group form-primary">
+                            <input asp-for="PageDetail.Order" class="form-control" />
+                            <span class="form-bar"></span>
+                            <label asp-for="PageDetail.Order" class="float-label"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

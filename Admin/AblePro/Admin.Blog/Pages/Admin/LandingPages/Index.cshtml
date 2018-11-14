@@ -1,0 +1,75 @@
+﻿@page
+@using Blog.Application.LandingPages.Models;
+@model Admin.Blog.Pages.Admin.LandingPages.IndexModel
+@{
+    ViewData["Title"] = "All Landing Pages";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>All Landing Pages</h5>
+                <span>Show all landing pages.</span>
+            </div>
+            <div class="card-block">
+                <div class="dt-responsive table-responsive">
+                    <table id="allpages-table" class="table table-hover simple-table">
+                        <thead>
+                            <tr>
+                                <th>@Html.DisplayNameFor(model => Model.LandingPages[0].Title)</th>
+                                <th>@Html.DisplayNameFor(model => Model.LandingPages[0].Slug)</th>
+                                <th>@Html.DisplayNameFor(model => Model.LandingPages[0].PublishOn)</th>
+                                <th>@Html.DisplayNameFor(model => Model.LandingPages[0].Status)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.LandingPages)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Slug)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PublishOn)</td>
+                                    <td>
+                                        @{
+                                            var statusClass = "label-warning";
+                                            switch (item.Status)
+                                            {
+                                                case PageStatus.Draft:
+                                                    statusClass = "label-warning";
+                                                    break;
+                                                case PageStatus.Private:
+                                                    statusClass = "label-inverse";
+                                                    break;
+                                                case PageStatus.Publish:
+                                                    statusClass = "label-primary";
+                                                    break;
+                                            }
+
+                                        }
+                                        <label class="label @statusClass">@Html.DisplayFor(modelItem => item.Status)</label>
+                                    </td>
+                                    <td class="action-icon">
+                                        <a asp-page="/LandingPages/Edit" asp-route-id="@item.ID" class="m-r-15 text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                            <i class="icofont icofont-ui-edit"></i>
+                                        </a>
+                                        <a asp-route-id="@item.ID" asp-page-handler="Trash" class="text-muted" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                            <i class="icofont icofont-delete-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#allpages-table').DataTable();
+        });
+    </script>
+}

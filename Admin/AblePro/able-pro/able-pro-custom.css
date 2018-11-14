@@ -1,0 +1,10 @@
+﻿.form-material .form-primary.form-static-label-black .float-label {
+    color: #373a3c;
+}
+.form-material .form-primary.form-static-label-black .form-control {
+    border-bottom-color: #ccc;
+}
+
+.simple-table > thead > tr > th {
+    border-bottom: none;
+}

@@ -1,0 +1,105 @@
+﻿<nav class="pcoded-navbar">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="">
+            <div class="main-menu-header">
+                <img class="img-menu-user img-radius" src="~/able-pro/assets/images/avatar-4.jpg" alt="User-Profile-Image">
+                <div class="user-details">
+                    <p id="more-details">John Doe<i class="feather icon-chevron-down m-l-10"></i></p>
+                </div>
+            </div>
+            <div class="main-menu-content">
+                <ul>
+                    <li class="more-details">
+                        <a href="user-profile.html">
+                            <i class="feather icon-user"></i>View Profile
+                        </a>
+                        <a href="#!">
+                            <i class="feather icon-settings"></i>Settings
+                        </a>
+                        <a href="auth-normal-sign-in.html">
+                            <i class="feather icon-log-out"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pcoded-navigation-label">COMMON</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="active">
+                <a asp-area="Admin" asp-page="/Admin/Dashboard" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                </a>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="fa fa-image"></i></span>
+                    <span class="pcoded-mtext">Users</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a asp-area="Admin" asp-page="/Admin/Users/Roles" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Roles</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-area="Admin" asp-page="/Admin/Users/Index" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">All Users</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-area="Admin" asp-page="/Admin/Users/New" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">New User</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="fa fa-image"></i></span>
+                    <span class="pcoded-mtext">Media</span>
+                    <span class="pcoded-badge label label-warning">NEW</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a asp-page="/Admin/Media/Index" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Library</span>
+                            <span class="pcoded-badge label label-info">25+</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-page="/Admin/Media/Galleries" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">Galleries</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-page="/Admin/Media/Upload" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">New Media</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                    <span class="pcoded-micon"><i class="icofont icofont-copy-alt"></i></span>
+                    <span class="pcoded-mtext">Pages</span>
+                    <span class="pcoded-badge label label-warning">NEW</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a asp-page="/Admin/LandingPages/Index" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">All Pages</span>
+                            <span class="pcoded-badge label label-info">25+</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-page="/Admin/LandingPages/New" class="waves-effect waves-dark">
+                            <span class="pcoded-mtext">New Page</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="pcoded-navigation-label">BLOG</div>
+    </div>
+</nav>
