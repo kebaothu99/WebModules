@@ -20,9 +20,9 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\Admin\Metronic\Admin.Blog\Admin.Blog.csproj" />
-    <ProjectReference Include="..\Modules\Blog.Persistence\Blog.Persistence.csproj" />
-    <ProjectReference Include="..\Web\Canvas\Web.Blog\Web.Blog.csproj" />
+    <ProjectReference Include="..\..\Admin\Metronic\Admin.Blog\Admin.Blog.csproj" />
+    <ProjectReference Include="..\..\Modules\Blog.Persistence\Blog.Persistence.csproj" />
+    <ProjectReference Include="..\..\Web\Canvas\Web.Blog\Web.Blog.csproj" />
   </ItemGroup>
 
 </Project>
